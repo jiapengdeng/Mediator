@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Mediator</title>
+</head>
+<body>
+    <h1>Chat</h1>
+
+    <form id="chatForm">
+        <label for="formBox">Your Name</label>
+        <input type="text" id="fromBox"/>
+        <label for="toBox">Send To</label>
+        <input type="text" id="toBox"/>
+        <label for="chatBox">Message</label>
+        <input type="text" id="ChatBox"/>
+        <input type="submit" value="提交"/>
+    </form>
+    <div class="chatResult"></div>
+</body>
+<script src="./js/zepto.min.js"></script>
+<script src="./js/mediator_deep.js"></script>
+
+<script>
+    $("#chatForm").on("submit",function(e){
+        e.preventDefault();
+        var text=$("#chatBox").val(),
+                form=$("#formBOx").val(),
+                to=$("#toBox").val();
+        Mediator.publish("newMessage",{message:text,form:form,to:to});
+    });
+    function displayChat(data){
+        var date=new Date(),
+                msg=data.form+"said\""+data.message+"\"to"+data.to;
+        $("#chatResult").prepend(""+msg+"("+date.toLocaleTimeString()+")");
+    }
+    function logChat(data){
+        if(window.console){
+            console.log(data);
+        }
+    }
+    Mediator.subscribe("newMessage",displayChat);
+    Mediator.subscribe("newMessage",logChat);
+    console.log(Mediator);
+    /*function amTalkingToMyself(data){
+        return data.form===data.to;
+    }
+    function iAmClearlyCrazy(data){
+        $("#chatResult").prepend(""+data.form+"is talking to himself");
+    }
+    Mediator.Subscribe(amTalkingToMyself,iAmClearlyCrazy);*/
+
+</script>
+</html>

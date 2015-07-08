@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布订阅模式</title>
+</head>
+<body>
+    
+</body>
+<!--  <script src="./js/public_subscribe.js"></script>-->
+<script src="./js/mediator_deep.js"></script>
+<script src="./js/test.js"></script>
+<script>
+/*    //简单的消息记录器记录所有通过订阅者接受到的主题（topic）和数据
+    var messageLogger=function(topic,data){
+        console.log("Logging:"+topics+":"+data);
+    }
+    //订阅者监听订阅的topic，一旦该topic广播一个通知，订阅者就调用回调函数
+    var subscription=pubsub.subscribe("inbox/newMessage",messageLogger);
+    //发布者负责发布程序感兴趣的topic通知，例如
+    pubsub.publish("inbox/newMessage",["test","a","b","c"]);
+    pubsub.publish("inbox/newMessage",{
+        sender:"hello@google.com",
+        body:"Hey again!"
+    });*/
+    /*var gridUpdate=function(topic,data){
+        if(data!=="undefined"){
+            addGridRow(data);
+            updateCounter(data);
+        }
+    };
+    //在newDataAvailable topic 上创建一个订阅
+    var subscriber=pubsub.subscribe("newDataAvailable",gridUpdate);
+    //返回后界面上要用到的本地的当前时间
+    var getCurrentTime=function(){
+        var date=new Date(),
+            m=date.getMonth()+1,
+            d=date.getDate(),
+            y=date.getFullYear(),
+            t=date.toLocaleTimeString().toLowerCase();
+            return (m+"/"+d+"/"+y+" "+t);
+    };
+    //向网格添加数据行
+    function addGridRow(data){
+        //GUI deal
+        console.log("在界面绘制数据");
+    }
+    //更新网格上的最新本地时间
+    function updateCounter(data){
+        //GUI deal
+        console.log("data last update at"+getCurrentTime()+" with "+data);
+    }
+    //使用传递给订阅者数据data更新网络
+    
+    pubsub.publish("newDataAvailable",{
+        summerary:"arrat"
+    });
+    pubsub.publish("newDataAvailable",{
+        summerary:"arratyfgh"
+    });
+*/
+</script>
+</html>
